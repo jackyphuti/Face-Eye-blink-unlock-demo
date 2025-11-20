@@ -1,6 +1,6 @@
 import math
 
-from unlock import eye_aspect_ratio
+from ear import eye_aspect_ratio
 
 
 def test_eye_aspect_ratio_basic():
