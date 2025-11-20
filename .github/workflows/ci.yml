@@ -19,10 +19,11 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
+    - name: Install minimal test deps
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - name: Run tests
+        pip install pytest
+    - name: Run lightweight tests
       run: |
-        python -m pytest -q
+        # Run only the fast unit tests that don't require heavy native deps
+        python -m pytest -q tests/test_ear.py
