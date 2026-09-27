@@ -1,0 +1,16 @@
+[Unit]
+Description=Biometric Face and Eye Blink Unlock Daemon
+After=network.target multi-user.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/Face-Eye-blink-unlock-demo
+ExecStart=/home/pi/Face-Eye-blink-unlock-demo/.venv/bin/python unlock.py --headless --gpio --log /var/log/face_unlock.log
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
